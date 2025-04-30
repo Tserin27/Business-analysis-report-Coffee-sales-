@@ -113,6 +113,26 @@ LIMIT 10;
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------------------------------
+-- TOP 3 RANK BY COUNTRY SALES
+WITH CTE_CUSTOMER_RANK AS (
+SELECT 
+      DISTINCT(COUNTRY) AS COUNTRY,
+      C.CUSTOMER_ID AS CUSTOMER_NUM,
+      ROUND(sum(QUANTITY*UNIT_PRICE),2) AS SALES,
+      ROW_NUMBER () OVER (PARTITION BY COUNTRY ORDER BY sum(QUANTITY*UNIT_PRICE) DESC) ROW_NUM
+FROM CUSTOMER C
+JOIN ORDERS
+USING (CUSTOMER_ID)
+JOIN PRODUCT
+USING(PRODUCT_ID)
+GROUP BY COUNTRY, CUSTOMER_ID
+)
+SELECT 
+      *
+FROM CTE_CUSTOMER_RANK
+WHERE ROW_NUM BETWEEN 1 AND 3;
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
  -- How each roast type is performing monthly and quarterly?     
 SELECT
       DISTINCT (ROAST_TYPE),
@@ -208,4 +228,13 @@ JOIN CTE_YES_LOYALTY
 JOIN CTE_NO_LOYALTY
 JOIN CTE_COUNT
 GROUP BY Loyalty_Card, YES_LOYALTY, NO_LOYALTY, COUNT;
-	
+
+-- COMBINED DATA
+SELECT 
+      *,
+      UNIT_PRICE * QUANTITY AS SALES
+FROM CUSTOMER
+JOIN ORDERS
+USING (CUSTOMER_ID)
+JOIN PRODUCT
+USING (PRODUCT_ID);
