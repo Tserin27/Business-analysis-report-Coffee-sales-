@@ -2,6 +2,12 @@
 ## Project objective
 - This report analyzes sales from 2019 to 2022 across the United States, Ireland, and the United Kingdom, highlighting key insights like the US market dominance, fluctuating performance in Ireland, and challenges in the UK. It examines sales trends for coffee types (Excelsa, Liberica, Arabica, and Robusta), roast types (light, medium, and dark), and loyalty programs, noting significant growth in 2021 and declines in 2022. The analysis covers annual performance, consumer preferences, and year-over-year changes, providing a detailed overview of market dynamics and trends.
 
+DASHBOARD 1
+![Screenshot 2025-04-30 120825](https://github.com/user-attachments/assets/1b8082aa-6068-4b2e-9836-422e6f058d78)
+
+DASHBOARD 2
+<img width="1123" alt="image" src="https://github.com/user-attachments/assets/ca714b2d-6618-4a84-acf8-b72c00104304" />
+
 ## Datasets used
 -<a href="https://1drv.ms/x/c/e40050ee892ab33e/EYm-gj2lU-xCiya14cJUDGABPw2gZPMhuYBhRvx7OEk3RQ?e=eYG7VI">coffeeorderdata</a>
 
